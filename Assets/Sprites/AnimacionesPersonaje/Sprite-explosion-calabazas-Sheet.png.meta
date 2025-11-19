@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,27 +34,27 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -95,12 +95,144 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Sprite-explosion-calabazas-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 15
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083515e16d25e334d9ea999400ea576e
+      internalID: -1986948505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-explosion-calabazas-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 11
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf153cb8ed23ed64fa9e8ef97598f0dc
+      internalID: 1720479245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-explosion-calabazas-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 21
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eccb7a646d92c24da53bf3baf25cf42
+      internalID: 317043903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-explosion-calabazas-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 12
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b5da50f21c399b4fb147d21d9cce353
+      internalID: 1033992827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-explosion-calabazas-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 12
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f09e7e08f963da46a5ee60326bfb5f1
+      internalID: -872883343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-explosion-calabazas-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 12
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7dfaa551021b50449a7374782e4a189
+      internalID: -676770476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ed8ff3177f43ae742ae384f182af31f3
     internalID: 0
     vertices: []
     indices: 
@@ -108,8 +240,37 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Sprite-explosion-calabazas-Sheet_0: -1986948505
+      Sprite-explosion-calabazas-Sheet_1: -872883343
+      Sprite-explosion-calabazas-Sheet_10: -446645506
+      Sprite-explosion-calabazas-Sheet_11: -445391725
+      Sprite-explosion-calabazas-Sheet_12: -382285309
+      Sprite-explosion-calabazas-Sheet_13: -1094716534
+      Sprite-explosion-calabazas-Sheet_14: -894109612
+      Sprite-explosion-calabazas-Sheet_15: -2356926
+      Sprite-explosion-calabazas-Sheet_16: 1079604425
+      Sprite-explosion-calabazas-Sheet_17: 782749418
+      Sprite-explosion-calabazas-Sheet_18: 1296524186
+      Sprite-explosion-calabazas-Sheet_19: -452571698
+      Sprite-explosion-calabazas-Sheet_2: -676770476
+      Sprite-explosion-calabazas-Sheet_20: 622890194
+      Sprite-explosion-calabazas-Sheet_21: 1733819286
+      Sprite-explosion-calabazas-Sheet_22: -470022255
+      Sprite-explosion-calabazas-Sheet_23: -1989211359
+      Sprite-explosion-calabazas-Sheet_24: 2042699500
+      Sprite-explosion-calabazas-Sheet_25: 714342969
+      Sprite-explosion-calabazas-Sheet_26: -444145534
+      Sprite-explosion-calabazas-Sheet_3: 1382517488
+      Sprite-explosion-calabazas-Sheet_4: 1033992827
+      Sprite-explosion-calabazas-Sheet_5: 692242453
+      Sprite-explosion-calabazas-Sheet_6: 309643345
+      Sprite-explosion-calabazas-Sheet_7: 1720479245
+      Sprite-explosion-calabazas-Sheet_8: 317043903
+      Sprite-explosion-calabazas-Sheet_9: -1725823073
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
