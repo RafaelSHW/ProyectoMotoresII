@@ -2,38 +2,59 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //movimiento y salto
-    public float moveSpeed = 5f; 
-    public float jumpForce = 10f; 
-    //detector de piso
-    public Transform groundCheck; 
-    public float groundCheckRadius = 0.2f; 
-    public LayerMask groundLayer; 
-    //fisicas
-    private Rigidbody2D rb; 
+    // Variables de movimiento y salto
+    public float moveSpeed = 5f;
+    public float jumpForce = 10f;
+
+    // Detector de piso
+    public Transform groundCheck;
+    public float groundCheckRadius = 0.2f;
+    public LayerMask groundLayer;
+
+    // Físicas y estado
+    private Rigidbody2D rb;
     private float moveInput;
-    private bool isGrounded; 
-    //vamos a obtener el rb
+    private bool isGrounded;
+    private Animator anim;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
-    
+
     void Update()
     {
-        //asignamos eje
-        moveInput = Input.GetAxis("Horizontal");
-        //verificamos piso
+        moveInput = Input.GetAxisRaw("Horizontal");
+
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        //mecanica salto
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+
+            anim.SetTrigger("Salta");
         }
+
+        UpdateAnimations();
     }
-    //fisica del movimiento
+
+    private void UpdateAnimations()
+    {
+        anim.SetFloat("Camina", Mathf.Abs(moveInput));
+    }
+
     void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+
+        if (moveInput > 0)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (moveInput < 0)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
     }
 }
