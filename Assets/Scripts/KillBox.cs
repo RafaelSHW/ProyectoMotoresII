@@ -13,12 +13,13 @@ public class KillBox : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) {
             //alternativa 1
-            
+            StartCoroutine(Dead());
 
             //alternativa 2 y reasignar despues a boton de retry
             //Scene reinicioNilvel = SceneManager.GetActiveScene();
             //SceneManager.LoadScene(reinicioNilvel.name);
         }
+
     }
     IEnumerator Dead()
     {

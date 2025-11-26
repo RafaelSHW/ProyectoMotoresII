@@ -1827,6 +1827,7 @@ MonoBehaviour:
   player: {fileID: 985549875}
   repawn: {fileID: 1341878990}
   nivel: 1
+  playerAnim: {fileID: 985549882}
 --- !u!58 &340394705
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3164,6 +3165,7 @@ MonoBehaviour:
   player: {fileID: 985549875}
   repawn: {fileID: 1341878990}
   nivel: 1
+  playerAnim: {fileID: 0}
 --- !u!1 &606402940
 GameObject:
   m_ObjectHideFlags: 0
