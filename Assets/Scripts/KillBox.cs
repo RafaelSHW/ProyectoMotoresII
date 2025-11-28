@@ -11,21 +11,21 @@ public class KillBox : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player")) {
-            //alternativa 1
-            StartCoroutine(Dead());
-
-            //alternativa 2 y reasignar despues a boton de retry
-            //Scene reinicioNilvel = SceneManager.GetActiveScene();
-            //SceneManager.LoadScene(reinicioNilvel.name);
-        }
 
     }
-    IEnumerator Dead()
+
+    public IEnumerator Dead()
     {
         playerAnim.SetBool("Muerte", true);
 
-        yield return new WaitForSeconds(1f);       
+        yield return new WaitForSeconds(1f);
+        player.transform.position = repawn.position;
+        playerAnim.SetBool("Muerte", false);
+        playerAnim.SetFloat("Camina", 0f);
+    }
+
+    public void RespawnWithoutDeathAnim()
+    {
         player.transform.position = repawn.position;
         playerAnim.SetBool("Muerte", false);
         playerAnim.SetFloat("Camina", 0f);

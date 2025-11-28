@@ -494,7 +494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 208307931}
   m_Layer: 0
-  m_Name: Spike Container
+  m_Name: GhostContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1684,7 +1684,7 @@ GameObject:
   - component: {fileID: 340394701}
   - component: {fileID: 340394705}
   m_Layer: 0
-  m_Name: TriangleEnemy
+  m_Name: Ghost
   m_TagString: Kill
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5898,7 +5898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1041187778
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7921,11 +7921,14 @@ MonoBehaviour:
   timer: {fileID: 250194427}
   levelIndex: 1
   timeEx: 0.5
+  nextLevelIndex: 2
   maxLives: 3
   vidas:
   - {fileID: 1227253945}
   - {fileID: 869349596}
   - {fileID: 706557525}
+  pauseMenuUI: {fileID: 1436320151}
+  isPaused: 0
 --- !u!1 &1879350813
 GameObject:
   m_ObjectHideFlags: 0
@@ -8208,6 +8211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1989852472}
   - component: {fileID: 1989852471}
+  - component: {fileID: 1989852473}
   m_Layer: 0
   m_Name: fondo 3_0
   m_TagString: Untagged
@@ -8288,6 +8292,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1989852473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989852470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db43354b722cce0439674249be1a01df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelGoal
 --- !u!1 &2013372620
 GameObject:
   m_ObjectHideFlags: 0

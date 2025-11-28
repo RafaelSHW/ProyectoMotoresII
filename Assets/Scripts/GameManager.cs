@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [Tooltip("Gestor de tiempos para agregar solamente el tiempo requerido el tiempo de recarga de nivel y el texto a contador")]
-    [Header("Gestion de tiempo")]
     public float CountDown = 5;
     private float tiempoRestante;
     public bool tiempoTerminado = true;
@@ -15,31 +13,56 @@ public class GameManager : MonoBehaviour
     public int levelIndex;
     public float timeEx = 0.5f;
 
-    [Header("Gestion de vidas")]
+    public int nextLevelIndex = 2;
+
     public int maxLives = 3;
     private int vidasRestantes;
     public Image[] vidas;
     public static GameManager instance;
-    #region principales
-    void Awake(){
-        
+
+    public GameObject pauseMenuUI;
+    public bool isPaused = false;
+
+    void Awake()
+    {
         if (instance == null)
             instance = this;
         else
             Destroy(gameObject);
     }
+
     void Start()
     {
         tiempoRestante = CountDown;
         UpdateTime();
+
+        vidasRestantes = maxLives;
+        UpdateLivesUI();
+
+        Time.timeScale = 1f;
+        if (pauseMenuUI != null)
+        {
+            pauseMenuUI.SetActive(false);
+        }
     }
 
     void Update()
     {
-        if (tiempoTerminado)
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return))
+        {
+            if (isPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+
+        if (tiempoTerminado && !isPaused)
         {
             tiempoRestante -= Time.deltaTime;
-            //esto redondea los decimales
             int temporizador = Mathf.CeilToInt(tiempoRestante);
             timer.text = temporizador.ToString();
 
@@ -52,48 +75,78 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    #endregion
-    #region timer
-    //necesito que cambie de color cuando este este cerca de llegar a cero y si llega a cero ponle un color rojito
-    /*aqui 
-     van
-    varias 
-    lineas para 
-    peticiones*/
+
     void UpdateTime()
     {
-
         timer.text = Mathf.CeilToInt(tiempoRestante).ToString();
-
     }
-    #endregion
-    #region Gestor de vidas 
-    public void PlayerHit(){
-       // if (vidasRestantes <= 0) return;
+
+    public void PlayerHit(KillBox killer = null)
+    {
         vidasRestantes--;
         UpdateLivesUI();
 
-        if (vidasRestantes <= 0){
-            GameOver();
+        if (vidasRestantes <= 0)
+        {
+            GameOver(killer);
+        }
+        else if (killer != null)
+        {
+            killer.RespawnWithoutDeathAnim();
         }
     }
 
-    void UpdateLivesUI(){
-        for (int i = 0; i < vidas.Length; i++){
-            vidas[i].enabled = i < vidasRestantes;
+    void UpdateLivesUI()
+    {
+        for (int i = 0; i < vidas.Length; i++)
+        {
+            if (vidas[i] != null)
+            {
+                vidas[i].enabled = i < vidasRestantes;
+            }
         }
     }
 
-    void GameOver(){
-        StartCoroutine(ChangeLevel(levelIndex));
-
+    void GameOver(KillBox killer)
+    {
+        if (killer != null)
+        {
+            StartCoroutine(killer.Dead());
+        }
     }
-    #endregion
-    #region controldenivel
+
+    public void LevelWin()
+    {
+        tiempoTerminado = false;
+        StartCoroutine(ChangeLevel(nextLevelIndex));
+    }
+
     IEnumerator ChangeLevel(int levelIndex)
     {
-        yield return new WaitForSeconds(timeEx);
+        Time.timeScale = 1f;
+        yield return new WaitForSecondsRealtime(timeEx);
         SceneManager.LoadScene(levelIndex);
     }
-    #endregion
+
+    public void Pause()
+    {
+        isPaused = true;
+        Time.timeScale = 0f;
+
+        if (pauseMenuUI != null)
+        {
+            pauseMenuUI.SetActive(true);
+        }
+    }
+
+    public void Resume()
+    {
+        isPaused = false;
+        Time.timeScale = 1f;
+
+        if (pauseMenuUI != null)
+        {
+            pauseMenuUI.SetActive(false);
+        }
+    }
 }
